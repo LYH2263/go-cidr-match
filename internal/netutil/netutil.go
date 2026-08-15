@@ -8,10 +8,5 @@ func Contains(cidr string, ip net.IP) bool {
 	if err != nil {
 		return false
 	}
-	ip = ip.To4()
-	if ip == nil {
-		return false
-	}
-	// BUG: only compare first octet
-	return ip[0] == network.IP.To4()[0]
+	return network.Contains(ip)
 }
